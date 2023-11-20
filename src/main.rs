@@ -4,6 +4,7 @@ use chrono::{DateTime, Utc};
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    println!("version: {}", env!("CARGO_PKG_VERSION"));
     let dtd = Utc::now().date_naive();
     let dt = dtd.and_hms_opt(0, 0, 0);
     let ago = dt.unwrap() - chrono::Duration::days(7);
