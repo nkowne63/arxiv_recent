@@ -1,5 +1,3 @@
-use core::panic;
-
 use anyhow::Result;
 use arxiv::ArxivQueryBuilder;
 use chrono::{DateTime, NaiveDate, Utc};
@@ -7,6 +5,7 @@ use clap::Parser;
 
 #[derive(Parser, Debug)]
 struct Cli {
+    /// start date format: %y-%m-%d, default: 7 days ago
     start_day: Option<String>,
 }
 

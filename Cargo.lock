@@ -87,6 +87,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a4668cab20f66d8d020e1fbc0ebe47217433c1b6c8f2040faf858554e394ace6"
 
 [[package]]
+name = "arec"
+version = "1.2.0"
+dependencies = [
+ "anyhow",
+ "arxiv-rs",
+ "chrono",
+ "clap",
+ "tokio",
+]
+
+[[package]]
 name = "arxiv-rs"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -95,17 +106,6 @@ dependencies = [
  "anyhow",
  "reqwest",
  "xml-rs",
-]
-
-[[package]]
-name = "arxiv_recent"
-version = "1.1.1"
-dependencies = [
- "anyhow",
- "arxiv-rs",
- "chrono",
- "clap",
- "tokio",
 ]
 
 [[package]]
