@@ -18,12 +18,12 @@ async fn main() -> Result<()> {
         .map(|s| {
             NaiveDate::parse_from_str(&s, "%y-%m-%d").map(|rn| rn.and_hms_opt(0, 0, 0).unwrap())
         })
-        .unwrap()
         .unwrap_or({
             let dtd = Utc::now().date_naive();
             let dt = dtd.and_hms_opt(0, 0, 0);
-            dt.unwrap() - chrono::Duration::days(7)
-        });
+            Ok(dt.unwrap() - chrono::Duration::days(7))
+        })
+        .unwrap();
     println!("start datetime: {}", start_day);
     let query = ArxivQueryBuilder::new()
         .search_query("cat:cs.PL cat:quant-ph")
