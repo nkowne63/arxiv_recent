@@ -38,15 +38,13 @@ async fn main() -> Result<()> {
         .filter(|arxiv| {
             let dt = DateTime::parse_from_rfc3339(&arxiv.updated);
             let dt = dt.unwrap().date_naive().and_hms_opt(0, 0, 0).unwrap();
-            dt > start_day
+            // remove not "...v1"
+            let is_v1 = arxiv.id.ends_with("v1");
+            dt > start_day && is_v1
         })
         .collect::<Vec<_>>();
     println!("count: {}", arxivs.len());
     for arxiv in arxivs {
-        // remove not "...v1"
-        if !arxiv.id.ends_with("v1") {
-            continue;
-        }
         println!("{} {}", arxiv.id, arxiv.title.replace('\n', ""),);
     }
     Ok(())
