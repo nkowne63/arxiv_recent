@@ -1,10 +1,10 @@
 # arxiv_recent
-extract recent incoming arxiv article for 1 week
+extract recent incoming arxiv article
 
 ## usage
 
 ```
-version: 1.2.0
+version: 1.2.2
 Usage: arec [START_DAY]
 
 Arguments:
